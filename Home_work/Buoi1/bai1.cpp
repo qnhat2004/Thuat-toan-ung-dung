@@ -16,7 +16,7 @@ ll fast_pow(ll a, ll b) {
 
 int main()
 {
-    int a, b;
+    ll a, b;
     cin >> a >> b;
     cout << fast_pow(a, b);
     return 0;
