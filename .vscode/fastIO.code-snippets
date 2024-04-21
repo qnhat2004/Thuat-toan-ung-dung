@@ -1,0 +1,129 @@
+{
+    "Print C++ Template": {
+        "prefix": "fast_cpp_template",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "",
+            "#define out(a) for(auto &i : a) cout << i << ' '; cout << '\\n';",
+            "#define in(a) for(auto &i : a) cin >> i;",
+            "#define ll long long",
+            "#define ld long double",
+            "#define endl '\\n'",
+            "#define FILE(x) freopen(x\".in\", \"r\", stdin); freopen(x.\".out\", \"w\", stdout);",
+            "#define OPEN_FILE freopen(\"input.txt\", \"r\", stdin); freopen(\"output.txt\", \"w\", stdout);",
+            "#define no cout << \"NO\" << endl;"
+            "#define yes cout << \"YES\" << endl;"
+            "#define all(x) x.begin(), x.end()",
+            "#define FOR(i, a, b) for(int i = a; i < b; i++)",
+            "#define FORD(i, a, b) for(int i = a - 1; i >= b; i--)",
+            "",
+            
+            "",
+            "void solve()",
+            "{",
+            "    ",
+            "}",
+            "",
+            "signed main()",
+            "{",
+            "    cin.tie(NULL)->sync_with_stdio(false);",
+            "    #ifndef ONLINE_JUDGE",
+            "        OPEN_FILE",
+            "    #endif",
+            "",
+            "    solve();",
+            "    $0",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Prints C++ template code."
+    },
+
+    "Print C++ template": {
+        "prefix": "time_template",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "using namespace chrono;"
+            "",
+            "void solve()",
+            "{",
+            "    ",
+            "}",
+            "",
+            "int main()",
+            "{",
+            "    cin.tie(NULL)->sync_with_stdio(false);",
+            "    freopen(\"input.txt\", \"w\", stdin);"
+            "    freopen(\"output.txt\", \"w\", stdout);"
+            "    auto start = high_resolution_clock::now();",
+            "    ",
+            "    solve();",
+            "    ",
+            "    auto stop = high_resolution_clock::now();",
+            "    auto duration = duration_cast<microseconds>(stop - start);",
+            "    cout << \"Time taken by function: \" << duration.count()/1000.0 << \" microseconds\" << endl;",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Prints C++ template code."
+    },
+
+    "Print C++ template": {
+        "prefix": "big_integer_template",
+        "body": [
+            "__int128 read() {",
+            "    __int128 x = 0, f = 1;",
+            "    char ch = getchar();",
+            "    while (ch < '0' || ch > '9') {",
+            "        if (ch == '-') f = -1;",
+            "        ch = getchar();",
+            "    }",
+            "    while (ch >= '0' && ch <= '9') {",
+            "        x = x * 10 + ch - '0';",
+            "        ch = getchar();",
+            "    }",
+            "    return x * f;",
+            "}",
+            "",
+            "// Output",
+            "void print(__int128 x) {",
+            "    if (x < 0) {",
+            "        putchar('-');",
+            "        x = -x;",
+            "    }",
+            "    if (x > 9) print(x / 10);",
+            "    putchar(x % 10 + '0');",
+            },
+        ],
+        "description": "Prints C++ template code."
+    },
+
+    "Print C++ template": {
+        "prefix": "chuan",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "",
+            "int main()",
+            "{",
+            "    #ifndef ONLINE_JUDGE",
+            "       freopen(\"input.txt\", \"r\", stdin);",
+            "       freopen(\"output.txt\", \"w\", stdout);",
+            "    #endif",
+            "    ",
+            "    ",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Prints C++ template code."
+    }
+}
+
+
+
+
+
+
+
