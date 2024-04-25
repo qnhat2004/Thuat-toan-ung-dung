@@ -1,0 +1,1 @@
+![](/Home_work/Buoi1/debai.png)
