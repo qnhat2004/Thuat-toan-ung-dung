@@ -1,5 +1,6 @@
 # Đáp án bài tập trong ứng dụng FineTest
-![](/DeBai/De-FineTest.pdf.pdf)
+
+## Tất cả bài tập: [Đề bài](/DeBai/De-FineTest.pdf)
 - [Hàm g(n) chia 4](/Finetest/Ham-g_n-chia-4.cpp)
 - [Phân tích N thành tổng M số](/Finetest/Phan-tich-N-thanh-tong-M-so.cpp)
 - [Số dãy con có tổng bằng M](/Finetest/So-day-con-co-tong-bang-M.cpp)
