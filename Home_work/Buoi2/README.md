@@ -1,3 +1,3 @@
-![Alt text](/Home_work/Buoi2/image.png)
-![](/Home_work/Buoi2/image1.png)
-![]![Alt text](image-1.png)
+![Alt text](/Home_work/Buoi2/bai1-2.png)
+![](/Home_work/Buoi2/bai3-4.png)
+![Alt text](bai5-6.png)
