@@ -6,3 +6,4 @@
 - [Số dãy con có tổng bằng M](/Finetest/So-day-con-co-tong-bang-M.cpp)
 - [Số Fibonacci bậc 3](/Finetest/So-fibonacci-bac-3.cpp)
 - [Tìm phẩn tử trên chuỗi xoắn](/Finetest/Tim-phan-tu-tren-chuoi-xoan.cpp)
+- [Số bộ 5 cấp số cộng](/Finetest/So-bo-5-cap-so-cong.cpp)
