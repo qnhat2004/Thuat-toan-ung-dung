@@ -4,7 +4,7 @@
 ## Ý tưởng bài 6:
 <div style="background-color: antiquewhite;">
     Tóm tắt đề bài: Cho mảng a[] gồm n phần tử và t truy vấn, mỗi truy vấn gồm 2 số p và q đại diện cho đoạn a[p] đến a[q]. Hãy tìm số cách chia đoạn [p, q] thành 2 mảng con sao cho chênh lệch tổng 2 mảng là nhỏ nhất
-</div>
+</div> <br>
 
 - Ý tưởng: Dùng đệ quy có nhớ
     - **findMinPartiton:** Giống như vét cạn, có thể tính sinh các tổng bằng cách chọn hoặc không chọn phần tử thứ i, kết quả là min của 2 cách, và lưu lại kết quả vào mảng dp -> khồng cần tính toán lại
