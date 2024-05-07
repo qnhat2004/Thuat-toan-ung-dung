@@ -2,30 +2,21 @@
 using namespace std;
 
 #define ll long long
+unordered_map<ll, ll> memo;
 
-unordered_map<ll, ll> g;
-
-ll solve(ll x) {
-    if (g.count(x)) return g[x];
-
-    if (x % 2 == 0) return g[x] = solve(x/2);
-
-    if ((x-1) % 4 == 0) {
-        ll n = (x - 1) / 4;
-        return g[x] = 2 * solve(2*n + 1) - solve(n);
-    }
-
-    ll n = (x - 3) / 4;
-    return g[x] = 3 * solve(2*n + 1) - 2 * solve(n);
+ll g(ll n) {
+    if (memo.count(n)) return memo[n];
+    if (n % 2 == 0) return memo[n] = g(n/2);
+    ll k = n/4;
+    if (n % 4 == 1) return memo[n] = 2 * g(2*k + 1) - g(k);
+    return memo[n] = 3 * g(2*k + 1) - 2 * g(k);
 }
-
 int main()
 {
-    g[1] = 1ll, g[3] = 3ll; 
-    
-    ll n; 
+    memo[1] = 1ll, memo[3] = 3ll;
+    ll n;
     cout << "Nhap n = ";
     cin >> n;
-    printf("g(%lld) = %lld", n, solve(n));
+    cout << "g(" << n << ") = " << g(n);
     return 0;
 }
