@@ -2,32 +2,26 @@
 using namespace std;
 
 #define ll long long
-unordered_map<ll, ll> m;
+unordered_map<ll, ll> memo; // Memory - Luu ket qua cua ham f(n)
 
 ll f(ll n) {
-    if (m.count(n)) return m[n];
-
-    ll k;
-
+    if (memo.count(n)) return memo[n];
+    ll k = n/3;
     if (n % 3 == 0) {
-        k = n/3;
-        return m[3*k] = f(2*k);
+        memo[n] = f(2*k);
+    } else if (n % 3 == 1) {
+        memo[n] = f(2*k) + f(2*k + 1);
+    } else {
+        memo[n] = f(2*k) + f(2*k + 1) + f(2*k + 2);
     }
-    if ((n-1) % 3 == 0) {
-        k = (n-1)/3;
-        return m[3*k+1] = f(2*k + 1) + f(2*k);
-    }
-
-    k = (n-2)/3;
-    return m[3*k+2] = f(2*k) + f(2*k + 1) + f(2*k + 2);
+    return memo[n];
 }
-
 int main()
 {
-    m[0] = 0ll, m[1] = 1ll, m[2] = 2ll;
+    memo[0] = 0ll, memo[1] = 1ll, memo[2] = 2ll;
     ll n;
     cout << "Nhap n = ";
     cin >> n;
-    printf("f(%lld) = %lld\n", n, f(n));
+    cout << "f(" << n << ") = " << f(n);
     return 0;
 }
