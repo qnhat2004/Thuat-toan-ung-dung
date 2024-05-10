@@ -10,7 +10,7 @@ int main()
         c = 2*a + b;
         a = b;
         b = c;
-    };
+    }
     cout << "So phuong an = " << b;
     return 0;
 }
