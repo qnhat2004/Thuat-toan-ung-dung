@@ -5,6 +5,7 @@ int dx[] = {0, 0, 1, -1};
 int dy[] = {1, -1, 0, 0};
 vector<vector<int>> dp;
 
+// dem so cach tu [m][n] ve [0][0]
 int solve(int m, int n) {
     if (m == 0 || n == 0) return 1;
     if (dp[m][n] != -1) return dp[m][n];
