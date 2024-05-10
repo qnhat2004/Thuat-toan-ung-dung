@@ -1,4 +1,5 @@
 .vscode
 *.exe
+!finetest.exe
 *.txt
 *.cph
