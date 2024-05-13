@@ -16,7 +16,7 @@ int minPartition(int a[], int n, int i, int sum, int total) {
     return min(minPartition(a, n, i+1, sum + a[i], total), minPartition(a, n, i+1, sum, total));
 }
 
-// Cach 2: 
+// Cach 2: De quy co nho
 int minPartition2(int a[], int n, int i, int sum, int total, vector<vector<int>> &dp) {
     if (i >= n) return abs(total - 2*sum);
     if (dp[i][sum] != -1) return dp[i][sum];
