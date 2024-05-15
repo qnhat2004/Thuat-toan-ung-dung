@@ -5,3 +5,6 @@
 *.cph
 *.in
 *.out
+test.cpp
+test2.cpp
+test*.py
