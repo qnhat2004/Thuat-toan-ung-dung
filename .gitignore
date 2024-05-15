@@ -3,3 +3,5 @@
 !finetest.exe
 *.txt
 *.cph
+*.in
+*.out
