@@ -1,29 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int m, n, cnt = 0, dp[100][100000], a[100];
+int a[100], m = 21, n = 10, cnt = 0, dp[100][100000];
 
-void gen(int i, int sum) {
-	if (sum == m || dp[i][sum] == 1) {
-		cnt++;
-		dp[i][sum] = 1;
-		return;
-	}
-	if (i == n || sum > m || dp[i][sum] != -1) return;
-	dp[i][sum] = 0;
-	gen(i+1, sum);
-	gen(i+1, sum + a[i]);
+int gen(int k, int sum) {
+    if (k >= n) {
+        if (sum == m) return 1;
+        return 0;
+    }
+    if (dp[k][sum] != -1) return dp[k][sum];
+    dp[k][sum] = 0;
+    dp[k][sum] += gen(k+1, sum);
+    dp[k][sum] += gen(k+1, sum + a[k]);
+    return dp[k][sum];
 }
-int main(){
+int main() {
     cout << "Nhap m = "; cin >> m;
     cout << "Nhap n = "; cin >> n;
-    for (int i = 0; i < n; ++i) {
-        printf("a[%d] = ", i);
+    for (int i = 0; i < n; i++) {
+        cout << "a[" << i << "] = ";
         cin >> a[i];
     }
-	memset(dp, -1, sizeof(dp));    
-    gen(0, 0);
+    memset(dp, -1, sizeof(dp));
+    int cnt = gen(0, 0);
     cout << "Co tat ca " << cnt << " cach phan tich.";
-	return 0;
+    return 0;
 }
-
