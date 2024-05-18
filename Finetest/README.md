@@ -10,6 +10,7 @@ ___
 - [Hàm g(n) chia 4](/Finetest/Ham-g_n-chia-4.cpp)
 - [Đường đi trên lưới](/Finetest/Duong-di-tren-luoi.cpp)
 - [Phân tích N thành tổng M số](/Finetest/Phan-tich-N-thanh-tong-M-so.cpp)
+- [Phân tích N thành tổng các số dương](/Finetest/Phan-tich-N-thanh-tong-cac-so-duong.cpp)
 - [Số dãy con có tổng bằng M](/Finetest/So-day-con-co-tong-bang-M)
 
 - [Lát gạch đường đôi](/Finetest/Lat-gach-duong-doi.cpp)
