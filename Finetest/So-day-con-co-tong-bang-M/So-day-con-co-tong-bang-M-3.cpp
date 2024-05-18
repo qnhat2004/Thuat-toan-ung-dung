@@ -24,6 +24,6 @@ int main() {
     }
     memset(dp, -1, sizeof(dp));
     gen(0, 0);
-    cout << "Co tat ca " << dp[0][0]<< " cach phan tich.";
+    cout << "Co tat ca " << dp[0][0] << " cach phan tich.";
     return 0;
 }
