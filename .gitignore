@@ -8,4 +8,5 @@
 *.out
 test.cpp
 test2.cpp
+test3.cpp
 test*.py
