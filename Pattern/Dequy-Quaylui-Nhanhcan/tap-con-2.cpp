@@ -4,14 +4,15 @@ using namespace std;
 const int MAX = 100;
 int a[MAX], n, m;
 
-void print(int n) {
+void print() {
     for (int i = 1; i <= n; i++) cout << a[i]; cout << endl;
 }
+// Chon n phan tu tu tap [1, m]
 void gen(int k) {
-    if (k > n) { print(n); return; }
-    for(int i = a[k-1] + 1; i <= m+n-k; i++) {
-        a[k] = i; gen(k+1);
-    }
+	if (k > n) { print(); return; }
+	for (int i = a[k-1] + 1; i <= m-n+k; i++) {
+		a[k] = i; gen(k+1);
+	}
 }
 int main()
 {
