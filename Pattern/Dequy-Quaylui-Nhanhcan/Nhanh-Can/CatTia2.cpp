@@ -41,7 +41,7 @@ void tham(int k, int d) {
 	}
 	for (int i = 1; i < N; i++) {
 		if (!ready[i]) { 
-			if (d + c[a[k-1]][i] + (N-k+1) < min_length) {	// 	Cat nhanh, con (N-k) dinh chua xet. Gia su do dai moi canh = 1 -> do dai toi thieu de di het (N-k) dinh: 1 * (N-k) = N-k	
+			if (d + c[a[k-1]][i] + (N-k) < min_length) {	// 	Cat nhanh, con (N-k+1) dinh chua xet(bao gom dinh ban dau) -> (N-k+1) - 1 = (N-k) canh. Gia su do dai moi canh = 1 -> do dai toi thieu de di het (N-k) canh: 1 * (N-k) = N-k	
 				a[k] = i;	// Tai lan tham thu k, tham dinh i
 				ready[i] = true;
 				tham(k+1, d + c[a[k-1]][i]);
