@@ -2,21 +2,28 @@
 using namespace std;
 
 const int INF = 1e4;
-const int N = 8;
+const int N = 5;
 
 int c[N][N] = {
-	{ 	0, 		2, 		3, 		1, 	 	INF, 	INF, 	INF, 	INF },
-	{ 	2, 		0, 		6, 		INF, 	5, 		1, 		INF, 	INF },
-	{ 	3, 		6, 		0, 		1, 	 	INF, 	1, 		8, 		INF },
-	{ 	1, 		INF, 	1, 		0, 	 	INF, 	INF, 	7, 		INF },
-	{ 	INF, 	5, 		INF, 	INF, 	0, 	    4, 	    INF, 	1 },
-	{ 	INF, 	1, 		1, 		INF, 	4, 		0, 		5, 		7 },
-	{ 	INF, 	INF, 	8, 		7, 		INF, 	5, 	    0, 	    5 },
-	{ 	INF, 	INF, 	INF, 	INF, 	1, 	    7, 	    5, 	    0 },
+//	{ 	0, 		2, 		3, 		1, 	 	INF, 	INF, 	INF, 	INF },
+//	{ 	2, 		0, 		6, 		INF, 	5, 		1, 		INF, 	INF },
+//	{ 	3, 		6, 		0, 		1, 	 	INF, 	1, 		8, 		INF },
+//	{ 	1, 		INF, 	1, 		0, 	 	INF, 	INF, 	7, 		INF },
+//	{ 	INF, 	5, 		INF, 	INF, 	0, 	    4, 	    INF, 	1 },
+//	{ 	INF, 	1, 		1, 		INF, 	4, 		0, 		5, 		7 },
+//	{ 	INF, 	INF, 	8, 		7, 		INF, 	5, 	    0, 	    5 },
+//	{ 	INF, 	INF, 	INF, 	INF, 	1, 	    7, 	    5, 	    0 },
 };
 
 int min_length = INF, cnt = 0, duong = 0, lap = 0, a[N] = { 0 }; // a[0] -> a[1] -> ... -> a[N-1] -> a[0]
 bool ready[N] = { false };	// Danh dau cac diem da tham
+
+void init() {
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) cout << (c[i][j] = (i == j ? 0 : rand() % 100)) << "\t";
+		cout << endl;
+	}
+}
 
 void induongdi(int d) {
 	duong++;	// So duong di xem xet
@@ -34,14 +41,16 @@ void tham(int k, int d) {
 	if (k == N) {
 		d += c[a[N-1]][0]; 	// a[k-1]: dinh da tham truoc do
 		if (d < min_length) {
-			cout << "Phat hien duong di moi toi uu hon: ";
-			induongdi(d);
+			// cout << "Phat hien duong di moi toi uu hon: ";
+			// induongdi(d);
+			min_length = d;
+			duong++;
 		}
 		return;
 	}
 	for (int i = 1; i < N; i++) {
 		if (!ready[i]) { 
-			if (d + c[a[k-1]][i] + (N-k) < min_length) {	// 	Cat nhanh, con (N-k+1) dinh chua xet(bao gom dinh ban dau) -> (N-k+1) - 1 = (N-k) canh. Gia su do dai moi canh = 1 -> do dai toi thieu de di het (N-k) canh: 1 * (N-k) = N-k	
+			if (d + c[a[k-1]][i] + (N-k) < min_length) {	// 	Cat nhanh, con (N-k+1) dinh chua xet(bao gom dinh ban dau) -> (N-k+1) - 1 = (N-k) canh. Gia su do dai moi canh = cmin = 1 -> do dai toi thieu de di het (N-k) canh: cmin * (N-k) = 1 * (N-k)= N-k	
 				a[k] = i;	// Tai lan tham thu k, tham dinh i
 				ready[i] = true;
 				tham(k+1, d + c[a[k-1]][i]);
@@ -52,6 +61,7 @@ void tham(int k, int d) {
 }
 
 int main() {
+	init();
 	ready[0] = true;	// Danh dau dinh 0 la noi xuat phat
 	tham(1, 0);		// Bat dau tu lan lap thu 1 voi chi phi ban dau la 0, "tham(k+1, d + c[a[k-1]][k]);" = 0 + c[a[0]][1] = c[0][1]
 	cout << "Duong di ngan nhat co do dai: " << min_length << endl;

@@ -52,6 +52,7 @@ int cach3(int w, vector<item> items) {
 }
 
 void print(int cach) {
+	cout << endl;
     if (cach == 1)
     {
         cout << "Sap xep theo gia tri giam dan la toi uu nhat" << endl;
@@ -99,7 +100,11 @@ int main()
     int res1 = cach1(w1, items1);
     int res2 = cach2(w2, items2);
     int res3 = cach3(w3, items3);  
-      
+
+	cout << endl;
+	cout << "Sap xep theo gia tri giam dan: " << res1 << endl;
+    cout << "Sap xep theo gia tri tang dan: " << res2 << endl;
+    cout << "Sap xep theo don gia giam dan: " << res3 << endl;
     int mx = max({res1, res2, res3});
 
     if (mx == res1)         

@@ -45,7 +45,6 @@ int main()
 {
 	cout << "Nhap k = ";
 	cin >> k;
-	dp[0] = 0, dp[1] = 0, dp[2] = 0, dp[3] = 1; 
 	cout << "Co tat ca " << gen(k, 0, 0) << " cach phan tich.";
 	return 0;
 }
