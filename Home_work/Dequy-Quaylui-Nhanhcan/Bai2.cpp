@@ -5,6 +5,7 @@ int n;
 
 int main()
 {
+    cout << "Nhap n = ";
     cin >> n;    
     return 0;
 }
