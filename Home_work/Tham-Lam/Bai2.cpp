@@ -8,7 +8,7 @@ struct item {
     double dongia;
 };
 
-vector<item> items(1000);
+vector<item> items;
 vector<int> path1, path2, path3;
 int w, n;
 
@@ -36,11 +36,11 @@ int cach1(int w, vector<item> items) {
 }
 
 // Sap xep theo trong luong tang dan
-int cach2(int w, vector<item> items) {
-    sort(items.begin(), items.end(), [](item a, item b) {
+int cach2(int w, vector<item> items_) {
+    sort(items_.begin(), items_.end(), [](item a, item b) {
         return a.trongluong < b.trongluong;
     });
-    return tinhtoan(path2, w, items);
+    return tinhtoan(path2, w, items_);
 }
 
 // Sap xep theo don gia giam dan
@@ -80,6 +80,8 @@ int main()
     cout << "Nhap W, N = "; 
     cin >> w >> n;
 
+    items.resize(n);
+    
     cout << "Nhap gia tri: "; 
     for (int i = 0; i < n; i++) cin >> items[i].giatri;
 
@@ -92,28 +94,23 @@ int main()
         items[i].dongia = (double)items[i].giatri / items[i].trongluong;
     }
 
-    path1.clear(); path2.clear(); path3.clear();
-
-    int w1 = w, w2 = w, w3 = w;
-    vector<item> items1 = items, items2 = items, items3 = items;
-
-    int res1 = cach1(w1, items1);
-    int res2 = cach2(w2, items2);
-    int res3 = cach3(w3, items3);  
+    int res1 = cach1(w, items);
+    int res2 = cach2(w, items);
+    int res3 = cach3(w, items);  
 
 	cout << endl;
 	cout << "Sap xep theo gia tri giam dan: " << res1 << endl;
-    cout << "Sap xep theo gia tri tang dan: " << res2 << endl;
+    cout << "Sap xep theo trong luong tang dan: " << res2 << endl;
     cout << "Sap xep theo don gia giam dan: " << res3 << endl;
     int mx = max({res1, res2, res3});
 
     if (mx == res1)         
         print(1);
-    else if (mx == res2)    
+    if (mx == res2)    
         print(2);
-    else                    
+    if (mx == res3)                    
         print(3);
 
-    cout << "Gia tri lon nhat co the thu duoc: " << mx << endl;
+    cout << "\nGia tri lon nhat co the thu duoc: " << mx << endl;
     return 0;
 }
