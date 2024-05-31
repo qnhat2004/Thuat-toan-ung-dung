@@ -14,8 +14,10 @@ void gen(int k) {
         return;
     }
     for (int i = 0; i <= 2; i++) {
-        a[k] = i;
-        gen(k + 1);
+        if (k == 0 || a[k - 1] != i) {
+            a[k] = i;
+            gen(k + 1);
+        }
     }
 }
 
