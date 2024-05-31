@@ -12,8 +12,8 @@ ___
 - [Phân tích N thành tổng M số](/Finetest/Phan-tich-N-thanh-tong-M-so.cpp)
 - [Phân tích N thành tổng các số dương](/Finetest/Phan-tich-N-thanh-tong-cac-so-duong.cpp)
 - [Số dãy con có tổng bằng M](/Finetest/So-day-con-co-tong-bang-M)
-
 - [Lát gạch đường đôi](/Finetest/Lat-gach-duong-doi.cpp)
+- [Phân tích K thành tổng các số dương khác nhau](/Finetest/Phan-tich-K-thanh-tong-cac-so-duong-khac-nhau.cpp)
 - [Tìm phẩn tử trên chuỗi xoắn](/Finetest/Tim-phan-tu-tren-chuoi-xoan.cpp)
 
 
