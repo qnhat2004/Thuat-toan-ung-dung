@@ -1,25 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, a[30000], dp[30000];
+int n, dp[30000], a[30000];
 
 int gen(int i, int last) {
-    if (n == i+1) {
-        return 0;
-    }
-    if (dp[i+1] != -1) return dp[i+1];
-    int notTake = gen(i+1, last);
-    int take = 0;
-    if (last == -1 || a[i+1] > a[last])
-        take = gen(i+1, i) + 1;
-    return dp[i+1] = max(take, notTake);
+	if (i == n) {
+		return 0;
+	}
+	if (dp[i] != -1) return dp[i];
+	if (last < a[i]) return dp[i] = max(gen(i+1, i) + 1, gen(i+1, last));
+	return dp[i] = gen(i+1, last);
 }
 
-int main()
-{
-    memset(dp, -1, sizeof(dp));
-    cin >> n;
-    for (int i = 0; i < n; i++) cin >> a[i];  
-    cout << gen(-1, -1);  
-    return 0;
-}
+int main() {
+	memset(dp, -1, sizeof(dp));
+	cin >> n;
+	for (int i = 0; i < n; i++) cin >> a[i];
+	cout << gen(0, -1);
+}    
