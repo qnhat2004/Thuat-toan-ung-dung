@@ -15,6 +15,16 @@ int gen(int i, int sum) { // top-down
     return dp[i][sum] = gen(i+1, sum) + (sum + a[i] <= S ? gen(i+1, sum + a[i]) : 0); // So cach tao ra tong sum tu i phan tu dau tien
 }
 
+int gen1(int i, int sum) {
+    if (i == 0) {
+        if (sum == 0) return 1;
+        return 0;
+    }
+    if (dp[i][sum] != -1) return dp[i][sum];
+    if (sum < a[i-1]) return gen1(i-1, sum);
+	return gen1(i-1, sum) + gen(i-1, sum-a[i-1]);
+}
+
 int QHD() { // bottom-up
     for (int i = 0; i <= N; i++) {
         for (int j = 0; j <= S; j++) {
@@ -30,5 +40,6 @@ int main()
     memset(dp, -1, sizeof(dp));
     cout << "De quy co nho: " << gen(0, 0) << endl;   
     cout << "Quy hoach dong: " << QHD() << endl; 
+    cout << "Top-down: " << gen1(N, S) << endl;
     return 0;
 }
