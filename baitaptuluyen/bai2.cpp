@@ -1,33 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-
-int main() {
-	ll n;
-	cin >> n;
-	int cnt = 0;
-	for (ll a = 1; a <= n; a++) 
-		for (ll b = a; b <= n; b++) {
-			ll c2 = a*a + b*b;
-			ll c = sqrt(c2);
-			if (c*c == c2 && c <= n && a+b+c <= n)
-				cnt++;
-		}
-	cout << cnt;
-}
+// https://byjus.com/pythagorean-triples-formula/
 
 /*
-Voi moi cap canh (a, b), no se la tam giac vuong khi ton tai
-canh c t/m: a^2 + b^2 = c^2
-
-goi c2 = a^2 + b^2
-
-- Kiem tra xem c2 co phai so chinh phuong khong
-- Neu c2 la scp, kiem tra xem co c = sqrt(c2) co nho hon hoac
-bang n hay khong
-- Neu c <= n, kiem tra xem lieu chu vi 3 canh cua tam giac
-co <= n hay khong.
-
-DPT: O(n^2)
+Cong thuc bo 3 Pytago:
+a = m^2 - n^2
+b = 2mn
+c = m^2 + n^2
+? Neu (a, b, c) la 3 canh tam giac vuong thi (ka, kb, kc) cung la 3 canh tam giac vuong
+? Voi m > n > 0, m va n la 2 so nguyen to cung nhau, m + n la so le
+* 2 so nguyen to cung nhau thi UCLN = 1, VD: (3, 4), (5, 12)
+-> a + b + c = 2m(m+n) <= N
+-> 2m^2 + 2mn <= N
 */
+
+int main() {
+	int n;
+	cin >> n;
+	int cnt = 0;
+	for (int i = 1; i < sqrt(n); i++) {
+		for (int j = i + 1; j < sqrt(n); j++) {
+			if (2*j*j + 2*j*i > n) break; // 2m^2 + 2mn <= N
+			if (__gcd(i, j) == 1 && (i + j) % 2 == 1) { // 
+				int a = j*j - i*i;
+				int b = 2*j*i;
+				int c = j*j + i*i;
+				int k = 1;
+				while(k * (a+b+c) <= n) { 	// (a, b, c) la tam giac vuong -> k(a, b, c) cung la tam giac vuong
+					cnt++;
+					k++;
+				}
+			}
+		}
+	}
+	cout << cnt;
+}
